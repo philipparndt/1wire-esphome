@@ -2,13 +2,14 @@ name: 'Build firmware'
 on:
   workflow_dispatch:
   push:
-  
+
 jobs:
-  test:
+  build-firmware:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@master
 
-      - name: build
-        run: ./build.sh
+      - uses: esphome/build-action@v1
+      with:
+        yaml_file: app.yaml
