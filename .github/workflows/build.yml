@@ -1,0 +1,14 @@
+name: 'Build firmware'
+on:
+  workflow_dispatch:
+  push:
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: build
+        run: ./build.sh

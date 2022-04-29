@@ -12,3 +12,4 @@ weather/
 coverage/
 .idea/
 .DS_Store
+firmware.bin
