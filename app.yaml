@@ -1,0 +1,82 @@
+substitutions:
+  temperature_update_time: 5s
+  publish_wind_interval: 5s
+  publish_temperature_interval: 60s
+  device_name: "1wire"
+  appversion: "1.0.0"
+  base_topic: "home/1wire"
+
+esphome:
+  name: ${device_name}
+  platform: ESP32
+  board: esp32-poe-iso
+  includes:
+    - eth/eth-address.h
+
+globals:
+  - id: current_screen
+    type: int
+    restore_value: no
+    initial_value: '0'
+
+packages:
+  mqtt:     !include config/mqtt.yaml
+  ethernet: !include config/ethernet.yaml
+  i2c:      !include config/i2c.yaml
+#  font:     !include ui/fonts/fonts.yaml
+#  display:  !include ui/display.yaml
+
+# Enable logging
+logger:
+  level: WARN
+
+# Enable Home Assistant API
+api:
+  password: "1234"
+
+ota:
+  password: "1234"
+
+web_server:
+  port: 80
+
+# Example configuration entry
+dallas:
+  - pin: GPIO5
+    update_interval: ${temperature_update_time}
+
+# Individual sensors
+sensor:
+  - <<: !include sensors/wind.yaml
+  - <<: !include sensors/internal.yaml
+  - <<: !include sensors/indoor.yaml
+  - <<: !include sensors/outdoor.yaml
+  - <<: !include sensors/illuminance.yaml
+  - <<: !include sensors/dht.yaml
+
+  - <<: !include mqtt/json/wind.yaml
+  - <<: !include mqtt/json/internal.yaml
+  - <<: !include mqtt/json/indoor.yaml
+  - <<: !include mqtt/json/outdoor.yaml
+  - <<: !include mqtt/json/illuminance.yaml
+  - <<: !include mqtt/json/dht.yaml
+
+#  - <<: !include ui/screen-toggle.yaml
+
+text_sensor:
+  # Version Text Sensor
+  # see: https://esphome.io/components/text_sensor/version.html?highlight=platform%20version
+  - platform: version
+    name: ${device_name} Version
+    id: appver
+    internal: true
+  
+  - platform: custom
+    id: eth_address
+    lambda: |-
+      auto eth_address_sensor = new EthAddressTextSensor();
+      App.register_component(eth_address_sensor);
+      return {eth_address_sensor};
+
+    text_sensors:
+      name: "My Custom Text Sensor"
