@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@master
 
       - uses: esphome/build-action@v1
-      with:
-        yaml_file: app.yaml
+        with:
+          yaml_file: app.yaml
