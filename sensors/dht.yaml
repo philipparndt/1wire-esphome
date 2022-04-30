@@ -1,6 +1,6 @@
 - platform: dht
   pin: GPIO14
-  model: AM2302
+  model: DHT11
   temperature:
     name: "Indoor Reference Temperature"
     id: indoor_dht_temperature

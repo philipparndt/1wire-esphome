@@ -28,7 +28,8 @@ packages:
 
 # Enable logging
 logger:
-  level: WARN
+  #level: WARN
+  level: DEBUG
 
 # Enable Home Assistant API
 api:
@@ -47,17 +48,15 @@ dallas:
 
 # Individual sensors
 sensor:
-  - <<: !include sensors/wind.yaml
+  #- <<: !include sensors/wind.yaml
   - <<: !include sensors/internal.yaml
-  - <<: !include sensors/indoor.yaml
-  - <<: !include sensors/outdoor.yaml
+  - <<: !include sensors/sensors.yaml
   - <<: !include sensors/illuminance.yaml
   - <<: !include sensors/dht.yaml
 
-  - <<: !include mqtt/json/wind.yaml
+  #- <<: !include mqtt/json/wind.yaml
   - <<: !include mqtt/json/internal.yaml
-  - <<: !include mqtt/json/indoor.yaml
-  - <<: !include mqtt/json/outdoor.yaml
+  - <<: !include mqtt/json/sensors.yaml
   - <<: !include mqtt/json/illuminance.yaml
   - <<: !include mqtt/json/dht.yaml
 

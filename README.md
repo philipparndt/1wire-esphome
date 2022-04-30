@@ -11,6 +11,10 @@ Features:
 - Custom MQTT messages
 - Packed in an [electrical junction box](https://www.amazon.de/Kopp-347114008-Abzweigdose-Aufputz-Feuchtraum-Klemmleiste/dp/B00BGT6MK6)
 
+# Configure sensors
+
+Configure your 1-wire sensors in `generate.mjs` and execute the script.
+
 # Messages
 
 // TBD
@@ -32,3 +36,8 @@ Features:
 ## Update the firmware
 
 Run `./run.sh` to do a OTA update.
+
+## Get 1-wire sensor addresses
+
+Set the log level to `DEBUG` in `app.yaml` and observe the output of the console.
+There will be a list of sensor addresses.
