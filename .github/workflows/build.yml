@@ -16,5 +16,5 @@ jobs:
           yaml_file: app.yaml
       - uses: actions/upload-artifact@v2
         with:
-          name: ESP32-POE-1Wire-${{ steps.esphome-build.outputs.name }}
+          name: ESP32-POE-${{ steps.esphome-build.outputs.name }}
           path: ${{ steps.esphome-build.outputs.name }}
