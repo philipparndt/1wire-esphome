@@ -1,0 +1,15 @@
+  - <<: !include temperature/haus_ug_server_raum.yaml
+  - <<: !include temperature/haus_ug_server_rack.yaml
+  - <<: !include temperature/haus_ug_heizung_brauchwasser.yaml
+  - <<: !include temperature/haus_ug_heizung_gas_vl.yaml
+  - <<: !include temperature/haus_ug_heizung_gas_rl.yaml
+  - <<: !include temperature/haus_ug_heizung_hk_og_vl.yaml
+  - <<: !include temperature/haus_ug_heizung_hk_og_rl.yaml
+  - <<: !include temperature/haus_ug_heizung_solar_vl.yaml
+  - <<: !include temperature/haus_ug_heizung_solar_rl.yaml
+  - <<: !include temperature/haus_ug_heizung_hk_eg_vl.yaml
+  - <<: !include temperature/haus_ug_heizung_hk_eg_rl.yaml
+  - <<: !include temperature/haus_ug_lueftung_eingang.yaml
+  - <<: !include temperature/haus_ug_lueftung_ausgang.yaml
+  - <<: !include temperature/haus_ug_heizung_raum.yaml
+  - <<: !include temperature/haus_ug_lager_raum.yaml

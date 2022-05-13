@@ -4,6 +4,8 @@ Connect 1-wire sensors to MQTT using a ESP32 POE
 
 - [ESP32-POE](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE/open-source-hardware)
 - [Temparature sensors (1-wire)](https://www.amazon.de/gp/product/B075FV3PQR)
+- [RJ12 6P6C](https://www.amazon.de/gp/product/B00EZ7J45G)
+- [UEXT 1-wire PCB](https://oshwlab.com/pa.philipp.arndt/uext-1-wire-small)
 
 Features:
 - POE power supply
@@ -41,3 +43,5 @@ Run `./run.sh` to do a OTA update.
 
 Set the log level to `DEBUG` in `app.yaml` and observe the output of the console.
 There will be a list of sensor addresses.
+
+https://www.youtube.com/watch?v=XvA3UMDDrAQ

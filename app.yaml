@@ -23,8 +23,8 @@ packages:
   mqtt:     !include config/mqtt.yaml
   ethernet: !include config/ethernet.yaml
   i2c:      !include config/i2c.yaml
-#  font:     !include ui/fonts/fonts.yaml
-#  display:  !include ui/display.yaml
+  #font:     !include ui/fonts/fonts.yaml
+  #display:  !include ui/display.yaml
 
 # Enable logging
 logger:
@@ -48,34 +48,69 @@ dallas:
 
 # Individual sensors
 sensor:
+  - <<: !include ./sensors/temperature/haus_ug_server_raum.yaml
+  - <<: !include ./sensors/temperature/haus_ug_server_rack.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_brauchwasser.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_gas_vl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_gas_rl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_hk_og_vl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_hk_og_rl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_solar_vl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_solar_rl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_hk_eg_vl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_hk_eg_rl.yaml
+  - <<: !include ./sensors/temperature/haus_ug_lueftung_eingang.yaml
+  - <<: !include ./sensors/temperature/haus_ug_lueftung_ausgang.yaml
+  - <<: !include ./sensors/temperature/haus_ug_heizung_raum.yaml
+  - <<: !include ./sensors/temperature/haus_ug_lager_raum.yaml
+
+  - <<: !include ./mqtt/json/temperature/haus_ug_server_raum.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_server_rack.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_brauchwasser.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_gas_vl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_gas_rl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_og_vl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_og_rl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_solar_vl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_solar_rl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_eg_vl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_eg_rl.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_lueftung_eingang.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_lueftung_ausgang.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_raum.yaml
+  - <<: !include ./mqtt/json/temperature/haus_ug_lager_raum.yaml
+
+  #- <<: !include sensors/temperature.yaml
   #- <<: !include sensors/wind.yaml
-  - <<: !include sensors/internal.yaml
-  - <<: !include sensors/sensors.yaml
-  - <<: !include sensors/illuminance.yaml
-  - <<: !include sensors/dht.yaml
+  #- <<: !include sensors/internal.yaml
+  #- <<: !include sensors/illuminance.yaml
+  #- <<: !include sensors/dht.yaml
 
+  #- <<: !include mqtt/json/temperature.yaml
   #- <<: !include mqtt/json/wind.yaml
-  - <<: !include mqtt/json/internal.yaml
-  - <<: !include mqtt/json/sensors.yaml
-  - <<: !include mqtt/json/illuminance.yaml
-  - <<: !include mqtt/json/dht.yaml
+  #- <<: !include mqtt/json/internal.yaml
+  #- <<: !include mqtt/json/illuminance.yaml
+  #- <<: !include mqtt/json/dht.yaml
 
-#  - <<: !include ui/screen-toggle.yaml
+  #- <<: !include ui/screen-toggle.yaml
 
-text_sensor:
-  # Version Text Sensor
-  # see: https://esphome.io/components/text_sensor/version.html?highlight=platform%20version
-  - platform: version
-    name: ${device_name} Version
-    id: appver
-    internal: true
-  
-  - platform: custom
-    id: eth_address
-    lambda: |-
-      auto eth_address_sensor = new EthAddressTextSensor();
-      App.register_component(eth_address_sensor);
-      return {eth_address_sensor};
+  #- <<: !include mqtt/json/temperature/publish_haus_ug_server_rack_json.yaml
+  #- <<: !include mqtt/json/temperature/publish_haus_ug_server_raum_json.yaml
 
-    text_sensors:
-      name: "My Custom Text Sensor"
+#text_sensor:
+#  # Version Text Sensor
+#  # see: https://esphome.io/components/text_sensor/version.html?highlight=platform%20version
+#  - platform: version
+#    name: ${device_name} Version
+#    id: appver
+#    internal: true
+#
+#  - platform: custom
+#    id: eth_address
+#    lambda: |-
+#      auto eth_address_sensor = new EthAddressTextSensor();
+#      App.register_component(eth_address_sensor);
+#      return {eth_address_sensor};
+#
+#    text_sensors:
+#      name: "My Custom Text Sensor"

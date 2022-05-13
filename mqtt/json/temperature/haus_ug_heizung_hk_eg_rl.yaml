@@ -1,0 +1,14 @@
+
+- platform: uptime
+  id: publish_haus_ug_heizung_hk_eg_rl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_hk_eg_rl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/hk_eg_rl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_hk_eg_rl).state * 100) / 100;

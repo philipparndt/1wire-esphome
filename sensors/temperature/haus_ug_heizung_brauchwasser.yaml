@@ -1,0 +1,6 @@
+
+- platform: dallas
+  address: 0x0416C229E6FF28
+  name: "haus/ug/heizung/brauchwasser"
+  id: haus_ug_heizung_brauchwasser
+  internal: true

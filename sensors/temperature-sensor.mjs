@@ -1,4 +1,4 @@
-const toEspHomeId = (uid) => {
+ const toEspHomeId = (uid) => {
     const id = uid.replace(".", "")
     let split = id.match(/.{2}/g)
     split = split.reverse()
@@ -6,7 +6,7 @@ const toEspHomeId = (uid) => {
     return `0x${split.join("")}`
 }
 
-const topicToID = (topic) => {
+export const topicToID = (topic) => {
     return topic.replaceAll("/", "_")
 }
 

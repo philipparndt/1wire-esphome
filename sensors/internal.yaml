@@ -1,5 +1,5 @@
 - platform: dallas
-  address: 0x4b00000608b4ba28
+  address: 0x3b3c01d075f55928
   name: "Internal Temperature"
   id: internal_temperature
   internal: true

@@ -8,22 +8,14 @@ display:
 
       it.print(0, 60, id(font1), TextAlign::BASELINE_LEFT, "km/h");
 
-      if (id(wind).has_state()) {
-        it.printf(0, 50, id(font2), TextAlign::BASELINE_LEFT, "%.0f", id(wind).state);
-      }
+      //if (id(wind).has_state()) {
+      //  it.printf(0, 50, id(font2), TextAlign::BASELINE_LEFT, "%.0f", id(wind).state);
+      //}
 
       if (id(current_screen) == 0) {
         if (id(internal_temperature).has_state()) {
           it.print(75, 26, id(font1), TextAlign::BASELINE_LEFT, "int");
           it.printf(127, 26, id(font3), TextAlign::BASELINE_RIGHT, "%.1f°", id(internal_temperature).state);
-        }
-        if (id(indoor_temperature).has_state()) {
-          it.print(75, 38, id(font1), TextAlign::BASELINE_LEFT, "in");
-          it.printf(127, 38, id(font3), TextAlign::BASELINE_RIGHT, "%.1f°", id(indoor_temperature).state);
-        }
-        if (id(outdoor_temperature).has_state()) {
-          it.print(75, 50, id(font1), TextAlign::BASELINE_LEFT, "out");
-          it.printf(127, 50, id(font3), TextAlign::BASELINE_RIGHT, "%.1f°", id(outdoor_temperature).state);
         }
 
         it.print(127, 60, id(font1), TextAlign::BASELINE_RIGHT, "Celcius");

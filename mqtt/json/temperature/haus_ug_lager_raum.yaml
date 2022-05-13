@@ -1,0 +1,14 @@
+
+- platform: uptime
+  id: publish_haus_ug_lager_raum_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_lager_raum).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/lager/raum
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_lager_raum).state * 100) / 100;

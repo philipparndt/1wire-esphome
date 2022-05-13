@@ -1,0 +1,6 @@
+
+- platform: dallas
+  address: 0x011432B05DD428
+  name: "haus/ug/lueftung/ausgang"
+  id: haus_ug_lueftung_ausgang
+  internal: true

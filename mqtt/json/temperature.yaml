@@ -1,0 +1,210 @@
+
+- platform: uptime
+  id: publish_haus_ug_server_raum_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_server_raum).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/server/raum
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_server_raum).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_server_rack_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_server_rack).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/server/rack
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_server_rack).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_brauchwasser_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_brauchwasser).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/brauchwasser
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_brauchwasser).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_gas_vl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_gas_vl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/gas_vl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_gas_vl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_gas_rl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_gas_rl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/gas_rl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_gas_rl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_hk_og_vl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_hk_og_vl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/hk_og_vl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_hk_og_vl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_hk_og_rl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_hk_og_rl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/hk_og_rl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_hk_og_rl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_solar_vl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_solar_vl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/solar_vl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_solar_vl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_solar_rl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_solar_rl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/solar_rl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_solar_rl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_hk_eg_vl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_hk_eg_vl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/hk_eg_vl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_hk_eg_vl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_hk_eg_rl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_hk_eg_rl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/hk_eg_rl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_hk_eg_rl).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_lueftung_eingang_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_lueftung_eingang).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/lueftung/eingang
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_lueftung_eingang).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_lueftung_ausgang_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_lueftung_ausgang).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/lueftung/ausgang
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_lueftung_ausgang).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_heizung_raum_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_heizung_raum).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/heizung/raum
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_heizung_raum).state * 100) / 100;
+
+- platform: uptime
+  id: publish_haus_ug_lager_raum_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(haus_ug_lager_raum).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/haus/ug/lager/raum
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(haus_ug_lager_raum).state * 100) / 100;

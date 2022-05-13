@@ -1,11 +1,11 @@
 #!/usr/bin/env zx
 
-import {toMqttYaml} from "./mqtt/json/mqtt-temperature.mjs";
-import {toSensorYaml} from "./sensors/temperature-sensor.mjs";
+import { toMqttYaml } from "./mqtt/json/mqtt-temperature.mjs"
+import {topicToID, toSensorYaml} from "./sensors/temperature-sensor.mjs"
 
 const sensors = [
-    { "uid": "28.FF3493331801", "topic": "haus/ug/server/raum"	},
-    { "uid": "28.517781331401", "topic": "haus/ug/server/rack"	},
+    { "uid": "28.FF349333180144", "topic": "haus/ug/server/raum"	},
+    { "uid": "28.517781331401DE", "topic": "haus/ug/server/rack"	},
     { "uid": "28.FFE629C21604", "topic": "haus/ug/heizung/brauchwasser"	},
     { "uid": "28.FF8D56331802", "topic": "haus/ug/heizung/gas_vl" },
     { "uid": "28.FF3956331801", "topic": "haus/ug/heizung/gas_rl" },
@@ -21,5 +21,25 @@ const sensors = [
     { "uid": "28.763261331401", "topic": "haus/ug/lager/raum"	},
 ]
 
-await fs.writeFile("./sensors/sensors.yaml", sensors.map(toSensorYaml).join("\n"))
-await fs.writeFile("./mqtt/json/sensors.yaml", sensors.map(toMqttYaml).join("\n"))
+const files = []
+
+for (const sensor of sensors) {
+    const id = topicToID(sensor.topic)
+    const sensorYaml = toSensorYaml(sensor)
+    const file = `./sensors/temperature/${id}.yaml`
+    //files.push(`temperature/${id}.yaml`)
+    files.push(file)
+    await fs.writeFile(file, sensorYaml)
+}
+
+//await fs.writeFile("./sensors/temperature.yaml", files.map(file => `  - <<: !include ${file}`).join("\n"))
+
+for (const sensor of sensors) {
+    const id = topicToID(sensor.topic)
+    const sensorYaml = toMqttYaml(sensor)
+    const file = `./mqtt/json/temperature/${id}.yaml`
+    files.push(file)
+    await fs.writeFile(file, sensorYaml)
+}
+// await fs.writeFile("./mqtt/json/temperature.yaml", sensors.map(toMqttYaml).join("\n"))
+await fs.writeFile("./sensors.yaml", files.map(file => `  - <<: !include ${file}`).join("\n"))

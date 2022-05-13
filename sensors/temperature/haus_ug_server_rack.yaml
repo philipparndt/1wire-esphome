@@ -1,0 +1,6 @@
+
+- platform: dallas
+  address: 0xDE01143381775128
+  name: "haus/ug/server/rack"
+  id: haus_ug_server_rack
+  internal: true
