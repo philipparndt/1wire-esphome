@@ -1,6 +1,6 @@
 
 - platform: dallas
-  address: 0x01143361327628
+  address: 0x9f01143361327628
   name: "haus/ug/lager/raum"
   id: haus_ug_lager_raum
   internal: true

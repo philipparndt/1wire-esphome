@@ -1,6 +1,0 @@
-- platform: bh1750
-  name: "BH1750 Illuminance"
-  address: 0x23
-  update_interval: 10s
-  id: indoor_illuminance
-  internal: true

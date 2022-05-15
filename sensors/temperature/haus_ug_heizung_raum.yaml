@@ -1,6 +1,6 @@
 
 - platform: dallas
-  address: 0x01143390AA3528
+  address: 0xc401143390AA3528
   name: "haus/ug/heizung/raum"
   id: haus_ug_heizung_raum
   internal: true

@@ -1,6 +1,6 @@
 
 - platform: dallas
-  address: 0x0416C1D2F2FF28
+  address: 0xb40416C1D2F2FF28
   name: "haus/ug/heizung/hk_eg_rl"
   id: haus_ug_heizung_hk_eg_rl
   internal: true

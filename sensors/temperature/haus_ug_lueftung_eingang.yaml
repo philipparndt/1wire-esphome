@@ -1,6 +1,6 @@
 
 - platform: dallas
-  address: 0x0114336F554028
+  address: 0x950114336F554028
   name: "haus/ug/lueftung/eingang"
   id: haus_ug_lueftung_eingang
   internal: true
