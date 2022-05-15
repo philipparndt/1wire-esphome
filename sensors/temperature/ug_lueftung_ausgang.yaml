@@ -1,6 +1,6 @@
 
 - platform: dallas
-  address: 0xf6011432B05DD428
+  address: 0xF6011432B05DD428
   name: "ug/lueftung/ausgang"
   id: ug_lueftung_ausgang
   internal: true

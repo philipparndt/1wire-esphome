@@ -1,6 +1,6 @@
 
 - platform: dallas
-  address: 0xd60416C229E6FF28
+  address: 0xD60416C229E6FF28
   name: "ug/heizung/brauchwasser"
   id: ug_heizung_brauchwasser
   internal: true

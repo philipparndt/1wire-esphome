@@ -24,8 +24,8 @@ packages:
 
 # Enable logging
 logger:
-  level: WARN
-  #level: DEBUG
+  #level: WARN
+  level: DEBUG
 
 # Enable Home Assistant API
 api:
