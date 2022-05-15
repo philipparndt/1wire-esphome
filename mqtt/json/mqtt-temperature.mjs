@@ -17,5 +17,6 @@ export const toMqttYaml = (sensor) => {
             topic: \${base_topic}/${sensor.topic}
             retain: True
             payload: |-
-              root["temperature"] = round(id(${id}).state * 100) / 100;`
+              root["temperature"] = round(id(${id}).state * 100) / 100;
+`
 }

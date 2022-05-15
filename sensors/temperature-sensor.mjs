@@ -93,5 +93,6 @@ export const toSensorYaml = (sensor) => {
   address: ${toEspHomeId(sensor.uid)}
   name: "${sensor.topic}"
   id: ${topicToID(sensor.topic)}
-  internal: true`
+  internal: true
+`
 }
