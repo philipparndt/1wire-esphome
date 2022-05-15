@@ -1,6 +1,6 @@
 
 - platform: dallas
   address: 0xf6011432B05DD428
-  name: "haus/ug/lueftung/ausgang"
-  id: haus_ug_lueftung_ausgang
+  name: "ug/lueftung/ausgang"
+  id: ug_lueftung_ausgang
   internal: true

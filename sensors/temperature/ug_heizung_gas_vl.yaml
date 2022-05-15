@@ -1,6 +1,6 @@
 
 - platform: dallas
   address: 0xa2021833568DFF28
-  name: "haus/ug/heizung/gas_vl"
-  id: haus_ug_heizung_gas_vl
+  name: "ug/heizung/gas_vl"
+  id: ug_heizung_gas_vl
   internal: true

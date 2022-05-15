@@ -1,0 +1,14 @@
+
+- platform: uptime
+  id: publish_ug_heizung_solar_rl_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(ug_heizung_solar_rl).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/ug/heizung/solar_rl
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(ug_heizung_solar_rl).state * 100) / 100;

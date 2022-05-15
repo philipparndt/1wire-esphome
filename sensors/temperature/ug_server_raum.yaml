@@ -1,6 +1,6 @@
 
 - platform: dallas
   address: 0x440118339334FF28
-  name: "haus/ug/server/raum"
-  id: haus_ug_server_raum
+  name: "ug/server/raum"
+  id: ug_server_raum
   internal: true

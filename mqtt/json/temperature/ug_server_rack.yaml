@@ -1,0 +1,14 @@
+
+- platform: uptime
+  id: publish_ug_server_rack_json
+  update_interval: ${publish_temperature_interval}
+  on_value:
+    if:
+      condition:
+        lambda: 'return !isnan(id(ug_server_rack).state);'
+      then:
+        - mqtt.publish_json:
+            topic: ${base_topic}/ug/server/rack
+            retain: True
+            payload: |-
+              root["temperature"] = round(id(ug_server_rack).state * 100) / 100;

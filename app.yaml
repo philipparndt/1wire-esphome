@@ -4,7 +4,7 @@ substitutions:
   publish_temperature_interval: 60s
   device_name: "1wire"
   appversion: "1.0.0"
-  base_topic: "home/1wire"
+  base_topic: "haus"
 
 esphome:
   name: ${device_name}
@@ -24,8 +24,8 @@ packages:
 
 # Enable logging
 logger:
-  #level: WARN
-  level: DEBUG
+  level: WARN
+  #level: DEBUG
 
 # Enable Home Assistant API
 api:
@@ -44,37 +44,37 @@ dallas:
 
 # Individual sensors
 sensor:
-  - <<: !include sensors/temperature/haus_ug_server_raum.yaml
-  - <<: !include sensors/temperature/haus_ug_server_rack.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_brauchwasser.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_gas_vl.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_gas_rl.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_hk_og_vl.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_hk_og_rl.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_solar_vl.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_solar_rl.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_hk_eg_vl.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_hk_eg_rl.yaml
-  - <<: !include sensors/temperature/haus_ug_lueftung_eingang.yaml
-  - <<: !include sensors/temperature/haus_ug_lueftung_ausgang.yaml
-  - <<: !include sensors/temperature/haus_ug_heizung_raum.yaml
-  - <<: !include sensors/temperature/haus_ug_lager_raum.yaml
+  - <<: !include sensors/temperature/ug_server_raum.yaml
+  - <<: !include sensors/temperature/ug_server_rack.yaml
+  - <<: !include sensors/temperature/ug_heizung_brauchwasser.yaml
+  - <<: !include sensors/temperature/ug_heizung_gas_vl.yaml
+  - <<: !include sensors/temperature/ug_heizung_gas_rl.yaml
+  - <<: !include sensors/temperature/ug_heizung_hk_og_vl.yaml
+  - <<: !include sensors/temperature/ug_heizung_hk_og_rl.yaml
+  - <<: !include sensors/temperature/ug_heizung_solar_vl.yaml
+  - <<: !include sensors/temperature/ug_heizung_solar_rl.yaml
+  - <<: !include sensors/temperature/ug_heizung_hk_eg_vl.yaml
+  - <<: !include sensors/temperature/ug_heizung_hk_eg_rl.yaml
+  - <<: !include sensors/temperature/ug_lueftung_eingang.yaml
+  - <<: !include sensors/temperature/ug_lueftung_ausgang.yaml
+  - <<: !include sensors/temperature/ug_heizung_raum.yaml
+  - <<: !include sensors/temperature/ug_lager_raum.yaml
 
-  - <<: !include ./mqtt/json/temperature/haus_ug_server_raum.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_server_rack.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_brauchwasser.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_gas_vl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_gas_rl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_og_vl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_og_rl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_solar_vl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_solar_rl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_eg_vl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_hk_eg_rl.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_lueftung_eingang.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_lueftung_ausgang.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_heizung_raum.yaml
-  - <<: !include ./mqtt/json/temperature/haus_ug_lager_raum.yaml
+  - <<: !include ./mqtt/json/temperature/ug_server_raum.yaml
+  - <<: !include ./mqtt/json/temperature/ug_server_rack.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_brauchwasser.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_gas_vl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_gas_rl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_hk_og_vl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_hk_og_rl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_solar_vl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_solar_rl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_hk_eg_vl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_hk_eg_rl.yaml
+  - <<: !include ./mqtt/json/temperature/ug_lueftung_eingang.yaml
+  - <<: !include ./mqtt/json/temperature/ug_lueftung_ausgang.yaml
+  - <<: !include ./mqtt/json/temperature/ug_heizung_raum.yaml
+  - <<: !include ./mqtt/json/temperature/ug_lager_raum.yaml
 
   # Internal temperature sensor
   - <<: !include sensors/internal.yaml

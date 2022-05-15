@@ -1,6 +1,6 @@
 
 - platform: dallas
   address: 0x840516B573C8FF28
-  name: "haus/ug/heizung/solar_vl"
-  id: haus_ug_heizung_solar_vl
+  name: "ug/heizung/solar_vl"
+  id: ug_heizung_solar_vl
   internal: true
